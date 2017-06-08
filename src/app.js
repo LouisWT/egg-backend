@@ -1,10 +1,10 @@
 import Koa from 'koa';
 import Router from 'lark-router';
 import convert from 'koa-convert';
-import errorRes from 'app/middleware/error-res';
-import morgan from 'app/middleware/morgan';
-import responseTime from 'app/middleware/response-time';
-import conditionalGet from 'app/middleware/conditional-get';
+import errorRes from 'app/middlewares/error-res';
+import morgan from 'app/middlewares/morgan';
+import responseTime from 'app/middlewares/response-time';
+import conditionalGet from 'app/middlewares/conditional-get';
 import etag from 'koa-etag';
 import helmet from 'koa-helmet';
 import compress from 'koa-compress';
@@ -12,7 +12,7 @@ import bodyParser from 'koa-bodyparser';
 import validate from 'koa-validate';
 
 const app = new Koa();
-const router = new Router().load('controller');
+const router = new Router().load('controllers');
 
 // error handle
 app.use(errorRes);
@@ -44,6 +44,8 @@ app.use(bodyParser());
 
 // validate param
 validate(app);
+
+// passport
 
 // load routers
 app.use(router.routes());

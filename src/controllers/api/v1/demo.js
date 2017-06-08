@@ -8,6 +8,7 @@ export default (router) => {
     ctx.body = 'done';
     await next();
   });
+
   router.get('/', async (ctx, next) => {
     const { param } = ctx.request.query;
     console.log(param);

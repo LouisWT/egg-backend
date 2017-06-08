@@ -1,4 +1,4 @@
-// babel-register是实时转码，所以不能用于生产环境;生产环境用babel-cli
+// babel-register是实时转码，出于速度考虑，最好不用于生产环境;生产环境用babel-cli转码后部署
 if (process.env.NODE_ENV === 'dev') {
   require('babel-register');
 }
@@ -44,4 +44,4 @@ if (process.env.NODE_ENV === 'dev') {
   env(require.resolve('app/config/env/pro'));
 }
 
-require('app/base.js');
+require('app/app.js');
