@@ -1,0 +1,62 @@
+{
+  "name": "my_project",
+  "version": "1.0.0",
+  "description": "LouisWT's backend project",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon src/index.js",
+    "build": "babel src --out-dir pro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LouisWT/backend_project.git"
+  },
+  "keywords": [
+    "koa2"
+  ],
+  "author": "LouisWT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LouisWT/backend_project/issues"
+  },
+  "homepage": "https://github.com/LouisWT/backend_project#readme",
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "env": {
+      "browser": false,
+      "node": true
+    },
+    "extends": "airbnb-base",
+    "rules": {
+      "arrow-body-style": ["error", "always"],
+      "no-console": 0,
+      "global-require":0,
+      "import/no-extraneous-dependencies": 0
+    }
+  },
+  "dependencies": {
+    "babel-register": "~6.6.5",
+    "config": "~1.26.1",
+    "koa": "~2.2.0",
+    "koa-bodyparser": "~3.0.0",
+    "koa-compress": "~2.0.0",
+    "koa-convert": "~1.2.0",
+    "koa-etag": "~2.1.1",
+    "koa-helmet": "2.0.0",
+    "koa-morgan": "~1.0.1",
+    "koa-validate": "1.0.7",
+    "lark-router": "1.0.2",
+    "node-env-file": "~0.1.8"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.14",
+    "babel-eslint": "~7.2.3",
+    "babel-plugin-transform-async-to-generator": "6.8.0",
+    "babel-preset-es2015-node5": "~1.2.0",
+    "babel-preset-stage-0": "~6.5.0",
+    "eslint": "~3.19.0",
+    "eslint-config-airbnb-base": "~11.2.0",
+    "eslint-plugin-import": "~2.3.0",
+    "nodemon": "~1.11.0"
+  }
+}

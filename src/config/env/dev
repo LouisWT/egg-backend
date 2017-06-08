@@ -1,0 +1,5 @@
+# Config
+NODE_CONFIG_DIR=./src/config
+
+# Application
+PORT=7000
