@@ -10,6 +10,7 @@ import helmet from 'koa-helmet';
 import compress from 'koa-compress';
 import bodyParser from 'koa-bodyparser';
 import validate from 'koa-validate';
+import auth from 'app/modules/auth';
 
 const app = new Koa();
 const router = new Router().load('controllers');
@@ -46,6 +47,8 @@ app.use(bodyParser());
 validate(app);
 
 // passport
+app.use(auth.initialize());
+app.use(auth.authenticate());
 
 // load routers
 app.use(router.routes());

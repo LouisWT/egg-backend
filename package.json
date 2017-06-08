@@ -45,6 +45,7 @@
     "koa-helmet": "2.0.0",
     "koa-morgan": "~1.0.1",
     "koa-passport": "~3.0.0",
+    "passport-local":"1.0.0",
     "koa-validate": "1.0.7",
     "lark-router": "1.0.2",
     "node-env-file": "~0.1.8"
