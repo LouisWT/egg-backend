@@ -10,7 +10,8 @@ import helmet from 'koa-helmet';
 import compress from 'koa-compress';
 import bodyParser from 'koa-bodyparser';
 import validate from 'koa-validate';
-import auth from 'app/modules/auth';
+import { initialize } from 'app/modules/auth';
+import serve from 'koa-static';
 
 const app = new Koa();
 const router = new Router().load('controllers');
@@ -47,11 +48,15 @@ app.use(bodyParser());
 validate(app);
 
 // passport
-app.use(auth.initialize());
-app.use(auth.authenticate());
+app.use(initialize());
+// app.use(auth.authenticate());
 
 // load routers
 app.use(router.routes());
+
+// static file serve
+app.use(serve(`${__dirname}/../static_source`));
+console.log(`${__dirname}/../static_source`);
 
 // listen port
 app.listen(process.env.PORT, () => {
