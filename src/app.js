@@ -12,6 +12,7 @@ import bodyParser from 'koa-bodyparser';
 import validate from 'koa-validate';
 import { initialize } from 'app/modules/auth';
 import serve from 'koa-static';
+import path from 'path';
 
 const app = new Koa();
 const router = new Router().load('controllers');
@@ -55,8 +56,7 @@ app.use(initialize());
 app.use(router.routes());
 
 // static file serve
-app.use(serve(`${__dirname}/../static_source`));
-console.log(`${__dirname}/../static_source`);
+app.use(serve(path.join(__dirname, '..', 'static_source')));
 
 // listen port
 app.listen(process.env.PORT, () => {
