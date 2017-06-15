@@ -11,7 +11,7 @@ import compress from 'koa-compress';
 import bodyParser from 'koa-bodyparser';
 import validate from 'koa-validate';
 import { initialize } from 'app/modules/auth';
-import serve from 'koa-static';
+import staticServe from 'koa-static';
 import path from 'path';
 
 const app = new Koa();
@@ -56,7 +56,10 @@ app.use(initialize());
 app.use(router.routes());
 
 // static file serve
-app.use(serve(path.join(__dirname, '..', 'static_source')));
+app.use(staticServe(
+  path.join(__dirname, '..', 'static_source'),
+));
+console.log(path.join(__dirname, '..', 'static_source'));
 
 // listen port
 app.listen(process.env.PORT, () => {

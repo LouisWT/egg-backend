@@ -18,3 +18,17 @@ npm run build
 ```
 import { a } from 'config';
 ```
+
+### 静态资源获取
+静态资源存储在static_source文件夹下，可以通过文件路径访问文件
+如通过
+```
+localhost:3000/picture/zhizi.jpeg
+```
+来访问picture文件夹下的zhizi.jpeg
+
+### Redis数据库连接
+通过bluebird遍历Redis包的接口，并克隆出支持promise的接口，来使接口支持koa2，调用redis函数的形式为,即在API名称后加Async
+```
+redisClient.hmsetAsync();
+```
