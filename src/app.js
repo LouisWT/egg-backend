@@ -59,7 +59,6 @@ app.use(router.routes());
 app.use(staticServe(
   path.join(__dirname, '..', 'static_source'),
 ));
-console.log(path.join(__dirname, '..', 'static_source'));
 
 // listen port
 app.listen(process.env.PORT, () => {
