@@ -9,6 +9,16 @@
     "port": 3306,
     "user": "root",
     "password": "txsqldb",
-    "database": "weixinassistant-v2.2"
+    "database": "weixinassistant-v2.2",
+    "namedPlaceholders": true
+  },
+
+  "mongoConfig": {
+    "url": "192.168.88.216:27017/weixinassistant-v2-2",
+    // "user": 
+    // "password":
+    "options": {
+      
+    }
   }
 }
