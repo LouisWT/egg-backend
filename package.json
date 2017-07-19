@@ -20,6 +20,7 @@
     "url": "https://github.com/LouisWT/backend_project/issues"
   },
   "homepage": "https://github.com/LouisWT/backend_project#readme",
+
   "eslintConfig": {
     "parser": "babel-eslint",
     "env": {
@@ -35,6 +36,16 @@
       "consistent-return": 1
     }
   },
+  "babel": {
+    "presets": [
+      "es2015-node5",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-async-to-generator"
+    ]
+  },
+  
   "dependencies": {
     "babel-register": "~6.6.5",
     "bluebird": "~2.0.0",

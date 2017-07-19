@@ -1,0 +1,27 @@
+{
+  "redisConfig": {
+    "host": "127.0.0.1",
+    "port": 6379
+  },
+
+  "mysqlConfig": {
+    "host": "192.168.88.113",
+    "port": 3306,
+    "user": "root",
+    "password": "txsqldb",
+    "database": "weixinassistant-v2.2",
+    "namedPlaceholders": true
+  },
+
+  "mongoConfig": {
+    "url": "192.168.88.216:27017/weixinassistant-v2-2",
+    // "user": 
+    // "password":
+    "options": {
+      "config": {
+        // 生产环境下关闭autoIndex，防止影响性能
+        "autoIndex": false
+      }
+    }
+  }
+}
