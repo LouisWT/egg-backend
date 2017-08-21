@@ -1,5 +1,4 @@
 import { a } from 'config';
-import { authenticate } from 'app/modules/auth';
 import redisClient from 'app/lib/redis';
 import { query } from 'app/lib/mysql';
 
@@ -33,6 +32,7 @@ export default (router) => {
       id,
     });
     ctx.body = result;
+    console.log(result);
     await next();
   });
 };
