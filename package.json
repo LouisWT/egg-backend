@@ -33,9 +33,12 @@
       "no-console": 0,
       "global-require":0,
       "import/no-extraneous-dependencies": 0,
-      "consistent-return": 1
+      "consistent-return": 1,
+      "import/prefer-default-export": 0,
+      "import/no-dynamic-require": 0
     }
   },
+
   "babel": {
     "presets": [
       "es2015-node5",

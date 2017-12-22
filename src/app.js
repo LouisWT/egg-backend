@@ -58,6 +58,8 @@ app.use(initialize());
 app.use(authenticate().unless({
   path: [
     /api\/v1\/authentication/,
+    /api\/v1\/demo/,
+    /\//,
   ],
 }));
 

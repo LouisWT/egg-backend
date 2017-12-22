@@ -13,11 +13,12 @@ export default (router) => {
 
   router.post('/', async (ctx, next) => {
     // authenticate('local');
-    await redisClient.hmsetAsync('key',
-    { 'test keys 1': 'test val 1', 'test keys 2': 'test val 2' });
-    const result = await redisClient.hgetallAsync('key');
+    await redisClient.hsetAsync('key',
+    'test keys 2', 'test val 6');
+    const result = await redisClient.hmgetAsync('key', 'test keys 1', 'test keys 2');
     const { param } = ctx.request.query;
     console.log(result);
+    console.log(result[0]);
     console.log(param);
     console.log(`a = ${a}`);
     ctx.body = 'done';
