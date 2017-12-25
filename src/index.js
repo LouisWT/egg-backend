@@ -26,15 +26,23 @@ const deleteFolder = (path) => {
 };
 
 // 在 node_modules 创建软链接,从而优化模块引入
-const statInfo = fs.statSync(dst);
-if (statInfo && statInfo.isDirectory()) {
-  const link = fs.readlinkSync(dst);
-  if (link !== src) {
+try {
+  const statInfo = fs.statSync(dst);
+  if (statInfo && statInfo.isDirectory()) {
+    const link = fs.readlinkSync(dst);
+    if (link !== src) {
+      deleteFolder(dst);
+      fs.symlinkSync(src, dst, 'dir');
+    }
+  }
+} catch (error) {
+  if (error.code === 'ENOENT') {
+    fs.symlinkSync(src, dst, 'dir');
+  }
+  if (error.code === 'EINVAL') {
     deleteFolder(dst);
     fs.symlinkSync(src, dst, 'dir');
   }
-} else {
-  fs.symlinkSync(src, dst, 'dir');
 }
 
 // 加载环境变量。require.resolve用于将相对路径转为绝对路径。
