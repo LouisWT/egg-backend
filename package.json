@@ -1,86 +1,74 @@
 {
-  "name": "my_project",
+  "name": "QingMOOC-Backend-Egg",
   "version": "1.0.0",
-  "description": "LouisWT's backend project",
-  "main": "index.js",
+  "description": "QingMOOC",
+  "private": true,
+  "egg": {
+    "typescript": true
+  },
   "scripts": {
-    "test": "nodemon src/index.js",
-    "build": "babel src --out-dir pro"
+    "start": "egg-scripts start --sticky --daemon --title=egg-server-QingMOOC-Backend-Egg",
+    "stop": "egg-scripts stop --title=egg-server-QingMOOC-Backend-Egg",
+    "dev": "egg-bin dev --sticky -r egg-ts-helper/register",
+    "debug": "egg-bin debug -r egg-ts-helper/register",
+    "test-local": "egg-bin test -r egg-ts-helper/register",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov -r egg-ts-helper/register",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "autod": "autod",
+    "lint": "tslint --project . -c tslint.json",
+    "clean": "ets clean"
+  },
+  "dependencies": {
+    "cron": "^1.5.1",
+    "decompress": "^4.2.0",
+    "egg": "^2.14.1",
+    "egg-alinode": "^2.0.1",
+    "egg-mongoose": "^3.1.1",
+    "egg-mysql": "^3.0.0",
+    "egg-oss": "^2.0.0",
+    "egg-passport": "^2.0.1",
+    "egg-router-plus": "^1.3.0",
+    "egg-scripts": "^2.10.0",
+    "egg-socket.io": "^4.1.5",
+    "egg-validate": "^2.0.2",
+    "egg-xml-body": "^1.0.3",
+    "jsonwebtoken": "^8.4.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "mongoose": "^5.3.15",
+    "passport-jwt": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.119",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.12",
+    "@types/supertest": "^2.0.7",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.9.0",
+    "egg-ci": "^1.10.0",
+    "egg-mock": "^3.20.1",
+    "egg-ts-helper": "^1.17.1",
+    "shelljs": "^0.8.3",
+    "tslib": "^1.9.3",
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.1"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "ci": {
+    "version": "8"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/LouisWT/backend_project.git"
+    "url": ""
   },
-  "keywords": [
-    "koa2"
+  "eslintIgnore": [
+    "coverage"
   ],
   "author": "LouisWT",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LouisWT/backend_project/issues"
-  },
-  "homepage": "https://github.com/LouisWT/backend_project#readme",
-
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "env": {
-      "browser": false,
-      "node": true
-    },
-    "extends": "airbnb-base",
-    "rules": {
-      "arrow-body-style": ["error", "always"],
-      "no-console": 0,
-      "global-require":0,
-      "import/no-extraneous-dependencies": 0,
-      "consistent-return": 1,
-      "import/prefer-default-export": 0,
-      "import/no-dynamic-require": 0
-    }
-  },
-
-  "babel": {
-    "presets": [
-      "es2015-node5",
-      "stage-0"
-    ],
-    "plugins": [
-      "transform-async-to-generator"
-    ]
-  },
-  
-  "dependencies": {
-    "babel-register": "~6.6.5",
-    "bluebird": "~2.0.0",
-    "config": "~1.26.1",
-    "koa": "~2.2.0",
-    "koa-bodyparser": "~3.0.0",
-    "koa-compress": "~2.0.0",
-    "koa-convert": "~1.2.0",
-    "koa-etag": "~2.1.1",
-    "koa-helmet": "2.0.0",
-    "koa-morgan": "~1.0.1",
-    "koa-static": "~3.0.0",
-    "koa-passport": "~3.0.0",
-    "koa-unless": "~1.0.7",
-    "koa-validate": "1.0.7",
-    "lark-router": "1.0.2",
-    "mongoose": "~4.11.0",
-    "mysql2": "~1.3.3",
-    "node-env-file": "~0.1.8",
-    "redis": "~2.7.1",
-    "passport-jwt": "~2.2.1",
-    "passport-custom": "~1.0.5"
-  },
-  "devDependencies": {
-    "babel-cli": "~6.14",
-    "babel-eslint": "~7.2.3",
-    "babel-plugin-transform-async-to-generator": "6.8.0",
-    "babel-preset-es2015-node5": "~1.2.0",
-    "babel-preset-stage-0": "~6.5.0",
-    "eslint": "~3.19.0",
-    "eslint-config-airbnb-base": "~11.2.0",
-    "eslint-plugin-import": "~2.3.0",
-    "nodemon": "~1.11.0"
-  }
+  "license": "MIT"
 }
